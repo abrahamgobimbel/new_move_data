@@ -1,36 +1,40 @@
 import function_activator
-import pandas as pd
-from pathlib import Path
-
 import os
 
 def clear_terminal():
     os.system("cls")
-all_data = []
-clear_terminal()
-old_database_name = function_activator.old_database_name()    
-all_data.append(f"old_database_name : {old_database_name}")
-clear_terminal()
-old_table_name = function_activator.old_table_name(old_database_name)  
-all_data.append(f"old_table_name : {old_table_name}")   
-clear_terminal()
-for i in range(len(all_data)) : print(all_data[i])
-sql_query = function_activator.sql_query(old_table_name)
-function_activator.to_excel(old_database_name, old_table_name, sql_query)
-clear_terminal()
-print (f"Excel {old_database_name}_{old_table_name} sudah selesai")
 
-from datetime import date
-def date_today() :
-    date_today = date.today() 
-    date_today = str(date_today).replace("-", "_")
-    return date_today
+pilihan = False
+while not pilihan : 
+    print("List Fitur \n")
+    print ("1. Export EXCEL")
+    print ("2. Export SQL\n")
+    nomor = int(input(f"\nPilih nomor fitur yang ingin dijalankan : "))
+    while nomor < 1 or nomor > 2 : 
+        if nomor < 1 or nomor > 2:
+            print(f"\nNomor yang diinput harus antara 1 hingga 2\n")
+            nomor = int(input(f"Pilih nomor fitur yang ingin dijalankan : "))
+    pilihan = True
+if nomor == 1 :      
+    all_data = []
+    clear_terminal()
+    old_database_name = function_activator.old_database_name()    
+    all_data.append(f"old_database_name : {old_database_name}")
+    clear_terminal()
+    old_table_name = function_activator.old_table_name(old_database_name)  
+    all_data.append(f"old_table_name : {old_table_name}")   
+    clear_terminal()
+    for i in range(len(all_data)) : print(all_data[i])
+    sql_query = function_activator.sql_query(old_table_name)
+    function_activator.to_excel(old_database_name, old_table_name, sql_query)
+    clear_terminal()
+    print (f"Excel {old_database_name}_{old_table_name} sudah selesai")
+    
+else : 
+    old_database_name = function_activator.old_database_name()
+    old_table_name = function_activator.old_table_name(old_database_name)  
+    data_excel = function_activator.data_excel(old_database_name, old_table_name)
+    for index, row in data_excel.iterrows() :
+        insert_query = f"INSERT INTO "
 
-date_today_value = date_today()   
-nama_file_excel = f'{old_database_name}_{old_table_name}_{date_today_value}.xlsx'
-directory_path = Path(f"{old_database_name}/excel")
-file_path = Path(os.path.join(directory_path, nama_file_excel))
-data_excel = pd.read_excel(file_path)
-
-print(data_excel)
 
