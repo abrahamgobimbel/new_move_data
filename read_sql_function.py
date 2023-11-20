@@ -32,7 +32,7 @@ if nomor == 1 :
     
 else : 
     clear_terminal()
-    old_database_name = function_activator.old_database_name()
+    database_name = function_activator.database_name()
     clear_terminal()
     old_table_name = function_activator.old_table_name(old_database_name)  
     clear_terminal()
