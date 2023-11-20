@@ -9,7 +9,11 @@ def old_database_name() :
     return old_database_name
     
 def old_table_name(old_database_name) :
-    if old_database_name == 'db_GOKreasi' : 
+    if old database_name == 'db_GOIconsV2' :
+        old_table_name = [
+            'Produk'
+        ]
+    elif old_database_name == 'db_GOKreasi' : 
         old_table_name = [
             "peringkatnew"
         ]
@@ -22,7 +26,11 @@ def old_table_name(old_database_name) :
 
 
 def database_name(old_database_name) :
-    if old_database_name == 'db_GOKreasi' : 
+    if old_database_name == 'db_GOIconsV2' :
+        database_name = [
+            'product'
+        ]
+    elif old_database_name == 'db_GOKreasi' : 
         database_name = [
             'report_siswa_peringkat'
         ]
@@ -36,7 +44,7 @@ def database_name(old_database_name) :
             'kbm', 
             'materi', 
             'materi_teaser', 
-            'produk', 
+            'product', 
             'produk_teaser',
             'pt', 
             'report_siswa_empati_mandiri', 
@@ -68,6 +76,10 @@ def table_name(database_name) :
             "bab", 
             "buku"
             ]
+    elif database_name == 'db_product' :
+        table_name = [
+            'produk'
+        ]
     elif database_name == 'db_report_siswa_peringkat' : 
         table_name = [
             "peringkat_new"
