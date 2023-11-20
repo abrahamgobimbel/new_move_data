@@ -15,15 +15,15 @@ def old_database_name() :
     old_database_name = function_choice.old_database_name(old_database_name)
     return old_database_name
 
-def database_name(old_database_name) :
-    database_name = function_table.database_name(old_database_name)
-    database_name = function_choice.database_name(database_name)
-    return database_name
-
 def old_table_name(old_database_name) :
     old_table_name = function_table.old_table_name(old_database_name)
     old_table_name = function_choice.old_table_name(old_table_name)
     return old_table_name
+
+def database_name(old_database_name) :
+    database_name = function_table.database_name(old_database_name)
+    database_name = function_choice.database_name(database_name)
+    return database_name
 
 def table_name(database_name) :
     table_name = function_table.table_name(database_name)
