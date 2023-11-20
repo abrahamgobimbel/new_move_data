@@ -4,6 +4,8 @@ from pathlib import Path
 
 import os
 
+
+
 def clear_terminal():
     os.system("cls")
 all_data = []
@@ -25,11 +27,18 @@ sql_query = function_activator.sql_query(old_table_name)
 function_activator.to_excel(old_database_name, table_name, database_name, sql_query)
 clear_terminal()
 print (f"Excel {database_name}_{table_name} sudah selesai")
-nama_file_excel = 't_bab_2023_11_18.xlsx'
+
+from datetime import date
+def date_today() :
+    date_today = date.today() 
+    date_today = str(date_today).replace("-", "_")
+    return date_today
+
+date_today_value = date_today()   
+nama_file_excel = f'{table_name}_{date_today_value}.xlsx'
 directory_path = Path(f"{database_name}/excel")
-if not directory_path.exists():
-        directory_path.mkdir()
 file_path = Path(os.path.join(directory_path, nama_file_excel))
 data_excel = pd.read_excel(file_path)
 
 print(data_excel)
+

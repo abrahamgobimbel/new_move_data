@@ -17,5 +17,5 @@ def to_excel(old_database_name, table_name, database_name, sql_query):
     df = pd.read_sql(sql_query, db)
     directory_path = Path(f"{database_name}/excel")
     if not directory_path.exists():
-        directory_path.mkdir()
+        directory_path.mkdir(parents=True, exist_ok=True)
     df.to_excel(directory_path / f"{table_name}_{date_today_value}.xlsx")  
