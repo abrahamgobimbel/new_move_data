@@ -31,9 +31,13 @@ if nomor == 1 :
     print (f"Excel {old_database_name}_{old_table_name} sudah selesai")
     
 else : 
+    clear_terminal()
     old_database_name = function_activator.old_database_name()
+    clear_terminal()
     old_table_name = function_activator.old_table_name(old_database_name)  
+    clear_terminal()
     data_excel = function_activator.data_excel(old_database_name, old_table_name)
+    print (data_excel)
     for index, row in data_excel.iterrows() :
         insert_query = f"INSERT INTO "
 
