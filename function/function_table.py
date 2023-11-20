@@ -31,6 +31,7 @@ def old_table_name(old_database_name) :
             "mkt_JenisProduk"
             ]
     return old_table_name
+
 def database_name(old_database_name) :
     if old_database_name == 'db_GOIconsV2' :
         database_name = [
