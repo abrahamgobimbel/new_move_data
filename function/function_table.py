@@ -9,7 +9,7 @@ def old_database_name() :
     return old_database_name
     
 def old_table_name(old_database_name) :
-    if old database_name == 'db_GOIconsV2' :
+    if old_database_name == 'db_GOIconsV2' :
         old_table_name = [
             'Produk'
         ]
